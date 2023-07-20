@@ -1,0 +1,77 @@
+header{
+    background-color: #fff;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+section{
+    position: relative;
+    height: calc(100vh - 75px);
+    padding-top: 30px;
+}
+.timerContainer{
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+.timerInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.timerCtrl{
+    display: flex;
+    align-items: center;
+}
+.timerCtrl img{
+    cursor: pointer;
+}
+.timerCtrl p{
+    color: #5056ED;
+    font-size: 20px;
+    font-weight: 500;
+    border-left: 2px solid #D9D9D9;
+    padding-left: 20px;
+}
+.startTimer,.stopTimer{
+    color: #fff;
+    border: 0;
+    padding: 8px 10px;
+    min-width: 130px;
+    border-radius: 50px;
+    margin: 0 20px 0 50px;
+}
+.startTimer{
+    background: #5056ED;
+}
+.stopTimer{
+    background: #ED5050;
+}
+.history p{
+    margin-top: 10px;
+}
+.addTimer{
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+}
+.modal-body{
+    padding: 30px;
+}
+.modal-body input{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    outline: none;
+    padding: 5px;
+}
+.modal-body button.startTimer{
+    margin: 0;
+    margin-top: 20px;
+}

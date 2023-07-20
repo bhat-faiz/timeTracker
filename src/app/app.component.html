@@ -1,0 +1,48 @@
+<header>
+  <div class="container">
+    <nav>
+      <div>
+        <img src="../assets/logo.svg" alt="" />
+      </div>
+      <p class="bodyTextClr">Total Time Spend <b>{{calculateTotalTime()}}</b></p>
+    </nav>
+  </div>
+</header>
+
+<section class="container">
+  <div class="timerContainer" *ngFor="let i of assignmentData">
+    <div class="timerInfo">
+      <div class="timerName">
+        <h3 class="headingClr">{{i.taskName}}</h3>
+      </div>
+      <div class="timerCtrl">
+        <p *ngIf="i.isActive==false">00:00:00</p>
+        <p *ngIf="i.isActive==true">{{getTimer(i.activeDuration.slice(-1)[0].startedAt)}}</p>
+        <button *ngIf="i.isActive==false" class="startTimer" (click)="startTimer(i.id)">Start</button>
+        <button *ngIf="i.isActive==true" class="stopTimer" (click)="stopTimer(i.id)">Stop</button>
+        <img (click)="deleteTask(i.id)" src="../assets/delete.svg" alt="" /> 
+      </div>
+    </div>
+    <div class="history">
+      <p>History</p>
+      <p class="bodyTextClr" *ngIf="i.history.length==0">No History Found, Click on the start button to track the timer</p>
+      <div *ngIf="i.history.length!=0">
+        <p class="bodyTextClr" *ngFor="let j of i.history">{{j}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="addTimer" (click)="open(content)">
+    <img src="../assets/add.svg" alt="">
+  </div>
+</section>
+
+
+<!-- Modal to add timer -->
+<ng-template #content let-modal>
+	<div class="modal-body">
+    <p>Enter the Task Name</p>
+    <input type="text" name="taskName" [(ngModel)]="taskName">
+    <button [disabled]="taskName==''" [ngStyle]="{'cursor': taskName=='' ? 'not-allowed' : 'pointer' }" type="button" class="startTimer" (click)="onSubmit()">Save</button>
+	</div>
+</ng-template>
